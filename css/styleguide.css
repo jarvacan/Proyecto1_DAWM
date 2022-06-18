@@ -1,0 +1,96 @@
+:root { 
+  --black: #000000;
+  --malachite: #45a29e;
+  --pumice: #c5c6c7;
+  --steel-gray: #1f2833;
+  --white: #ffffff;
+ 
+  --font-size-l: 20px;
+  --font-size-m: 16px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 25px;
+  --font-size-xxxl: 25.4px;
+  --font-size-xxxxl: 29.5px;
+  --font-size-xxxxxl: 56.5px;
+ 
+  --font-family-poppins: "Poppins", Helvetica;
+}
+.poppins-normal-pumice-20px {
+  color: var(--pumice);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.poppins-medium-steel-gray-24px {
+  color: var(--steel-gray);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.poppins-normal-white-20px {
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.poppins-semi-bold-malachite-56-5px {
+  color: var(--malachite);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxxxl);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.poppins-semi-bold-pumice-25-4px {
+  color: var(--pumice);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.poppins-extra-bold-white-45px {
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.poppins-medium-white-18px {
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.poppins-semi-bold-steel-gray-56-5px {
+  color: var(--steel-gray);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxxxl);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.poppins-semi-bold-steel-gray-29-5px {
+  color: var(--steel-gray);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.poppins-semi-bold-pumice-25px {
+  color: var(--pumice);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 600;
+}
