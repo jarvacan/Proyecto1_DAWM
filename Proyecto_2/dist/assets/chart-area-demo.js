@@ -15,8 +15,9 @@ let fetchBrand = async (brand) => {
       let axisY = users.map(user => {
         let miscObj = user.data.specifications.find(spec => spec.title === "Misc");
         let priceObj = miscObj.specs.find(mis => mis.key === "Price")
-        let price = priceObj != null ? parseInt(priceObj.val[0].split(" ")[1]) : 1000
-        return price
+        let priceStr = (typeof priceObj === 'object') ? priceObj.val[0].split(" ")[1] : "666"
+        let price = isNaN(priceStr) ? parseFloat(priceObj.val[0].split(" ")[0].slice(2)) : parseFloat(priceStr)
+        return price //el precio esta filtrado de valores nulos, indefinidos o NaN
       })
       let div_canvas = document.querySelector("div.col-xl-6:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
       div_canvas.innerHTML = '<canvas id="myAreaChart" width="100%" height="40"></canvas>'
