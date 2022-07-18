@@ -70,11 +70,11 @@
                         <div class="collapsed" id="collapsePages" aria-labelledby="headingTwo"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="login.html">Samsumg</a>
-                                <a class="nav-link" href="register.html">Xiaomi</a>
-                                <a class="nav-link" href="password.html">Apple</a>
-                                <a class="nav-link" href="401.html">Huawei</a>
-                                <a class="nav-link" href="404.html">Google</a>
+                                <a class="nav-link" href="#">Samsumg</a>
+                                <a class="nav-link" href="#">Xiaomi</a>
+                                <a class="nav-link" href="#">Apple</a>
+                                <a class="nav-link" href="#">Huawei</a>
+                                <a class="nav-link" href="#">Google</a>
                             </nav>
                         </div>
                     </div>
@@ -135,7 +135,16 @@
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area me-1"></i>
-                                    Precio de lanzamiento para cada modelo
+                                    Precio de lanzamiento para cada modelo de 
+                                    <select id="areaComboBox">
+                                        <option value="samsung-phones-9">Samsumg</option>
+                                        <option value="xiaomi-phones-80">Xiaomi</option>
+                                        <option value="apple-phones-48">Apple</option>
+                                        <option value="huawei-phones-58">Huawei</option>
+                                        <option value="google-phones-107">Google</option>
+                                        <option value="lg-phones-20">LG</option>
+                                        <option value="nokia-phones-1">Nokia</option>
+                                    </select>
                                 </div>
                                 <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                             </div>

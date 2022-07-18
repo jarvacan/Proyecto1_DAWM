@@ -2,25 +2,26 @@
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
-let brand = "yu-phones-100"
-
-let fetchYu = async () => {
+let fetchBrand = async (brand) => {
   const response = await fetch(`https://api-mobilespecs.azharimm.site/v2/brands/${brand}`)
   const data = await response.json()
   const listaCelulares = data.data.phones
   const promises = await listaCelulares.map(cell => fetch(`https://api-mobilespecs.azharimm.site/v2/${cell.slug}`))
   Promise.all(promises)
-    .then(responses => {
-      responses.forEach(response => {
-        console.log(response.status, response.url);
-      })
-      return responses
-    })
+    .then(responses => responses)
     .then(responses => Promise.all(responses.map(r => r.json())))
     .then(users => {
       let axisX = users.map(user => user.data.phone_name)
-      let axisY = users.map(user => parseInt(user.data.specifications[12].specs[user.data.specifications[12].specs.length-1].val[0].split(" ")[1]))
-      var myLineChart = new Chart(ctxArea, {
+      let axisY = users.map(user => {
+        let miscObj = user.data.specifications.find(spec => spec.title === "Misc");
+        let priceObj = miscObj.specs.find(mis => mis.key === "Price")
+        let price = priceObj != null ? parseInt(priceObj.val[0].split(" ")[1]) : 1000
+        return price
+      })
+      let div_canvas = document.querySelector("div.col-xl-6:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
+      div_canvas.innerHTML = '<canvas id="myAreaChart" width="100%" height="40"></canvas>'
+      let ctxArea = document.getElementById("myAreaChart");
+      myLineChart = new Chart(ctxArea, {
         type: 'line',
         data: {
           labels: axisX.slice(0, 7),
@@ -52,7 +53,7 @@ let fetchYu = async () => {
             yAxes: [{
               ticks: {
                 min: 0,
-                max: 13000,
+                max: Math.max(...axisY.slice(0, 7)) + 100,
                 maxTicksLimit: 5
               },
               gridLines: {
@@ -69,5 +70,15 @@ let fetchYu = async () => {
 }
 
 // Area Chart Example
-var ctxArea = document.getElementById("myAreaChart");
-fetchYu()
+window.addEventListener('DOMContentLoaded', event => {
+  let brand = document.getElementById('areaComboBox').value;
+  fetchBrand(brand)
+
+})
+
+window.addEventListener('change', event => {
+  if (event.target.id == "areaComboBox") {
+    let brand = document.getElementById('areaComboBox').value;
+    fetchBrand(brand)
+  }
+});
